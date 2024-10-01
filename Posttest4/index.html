@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+<!-- Feather icons -->
+<script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
+  
+  <!-- Navbar -->
+  <div class="hero">
+    <nav>
+        <img  class="job-gambar" src="job-site.png" alt="Logo Wika" width="75px" height="75px">
+      </a>
+      <ul class="navbar-list" id="navbar-list">
+        <li class="navbar-item"><a href="index.html">Home</a></li>
+        <li class="navbar-item"><a href="tentangsaya.html">About Me</a></li>
+      </ul>
+      <button type="button" onclick="toggleBtn()" id="btn"><span></span></button>
+      <div class="lamp-container">
+        <img class="lamp">
+        <img  class="light" id="light"  >
+      </div>
+      <button class="hamburger" id="hamburger">
+        <i data-feather="menu"></i>
+      </button>
+    </nav>
+    
+    <div class="text-and-image">
+      <img src="orang kerja.jpg" alt="kerja" class="lowongan">
+      <div class="text-container">
+        <h1>JOB SITE</h1>
+        <p>Selamat datang di WEBSITE JOB SITE! Di sini, Anda dapat menemukan pekerjaan yang cocok dari berbagai perusahaan,Tekan Daftar untuk mendaftar pekerjaan.</p>
+        <a href="Pendaftaran_kerja.html">Daftar</a>
+        <div class="control">
+          <div class="line"><span></span></div>
+          <p>100%</p>
+        </div>
+          
+ </div>     
+    </div>
+
+     <!-- Main Content -->
+     <main class="data-kerja-section" id="konten-utama">
+      <h1 class="data-kerja-title">Cari Pekerjaan</h1>
+  
+      <form action="form.php" method="get" class="job-search-form">
+        <label for="job-title">Pekerjaan:</label>
+        <input type="text" id="job-title" name="job-title" class="job-search-input" placeholder="Masukkan pekerjaan posisi">
+        <label for="location">Lokasi:</label>
+        <input type="text" id="lokasi" name="location" class="job-search-input" placeholder="Masukkan lokasi">
+        <button type="submit" class="job-search-button">Cari</button>
+      </form>
+      
+    </main>
+      
+      
+      <!-- Tabel pekerjaan (hanya akan ditambahkan lewat JavaScript) -->
+      <div id="jobTableContainer" class="job-table-container" style="display: none;">
+          <table class="table-kerja" id="jobTable">
+          <thead>
+          <tr class="table-kerja-row">
+              <th class="table-kerja-header">No</th>
+              <th class="table-kerja-header">Posisi</th>
+              <th class="table-kerja-header">Perusahaan</th>
+              <th class="table-kerja-header">Lokasi</th>
+              <th class="table-kerja-header">Tanggal Berakhir</th>
+            </tr>
+          </thead>
+        <tbody id="jobTableBody">
+            <!-- Baris pekerjaan akan ditambahkan lewat JavaScript -->
+        </tbody>
+  </table>
+</div>
+
+
+    <!-- Footbar -->
+    <footer class="footbar-section">
+      <div class="footbar-container">
+        <figure class="footbar-brand">
+          <img class="job-gambar" src="job-site.png" alt="job-site Logo" width="75px" height="75px">
+          <figcaption>JOB SITE</figcaption>
+       </figure>
+
+          <address>
+              <p>
+                  Temukan peluang karir terbaik dengan JOB SITE,<br />
+                  platform pencarian kerja yang menghubungkan<br />
+                  talenta unggul dengan perusahaan terkemuka<br />
+                  dan bangun masa depan profesional Anda dengan mudah.
+              </p>
+          </address>
+      </div>
+
+      <div class="footbar-container">
+          <p class="footbar-title">Alamat</p>
+          <address>
+              <ul class="footbar-list">
+                  <li class="footbar-item">
+                      <i class="fa-solid fa-phone" style="margin-right: 5px"></i>
+                      <a href="#">+(62) 641 777 1945</a>
+                  </li>
+                  <li class="footbar-item">
+                      <i class="fa-solid fa-envelope" style="margin-right: 5px"></i>
+                      <a href="#">Job-site@gmail.com</a>
+                  </li>
+                  <li class="footbar-item">
+                      <i class="fa-solid fa-location-dot" style="margin-right: 5px"></i>
+                      <a href="#">Jl. Pramuka 5</a>
+                  </li>
+              </ul>
+          </address>
+      </div>
+
+      <div class="footbar-container">
+          <p class="footbar-title">Support</p>
+          <ul class="footbar-list">
+              <li class="footbar-item"><a href="#">Help Center</a></li>
+              <li class="footbar-item"><a href="#">Contact Us</a></li>
+          </ul>
+      </div>
+
+      <div class="footbar-container">
+          <p class="footbar-title">Social Media</p>
+          <ul class="footbar-list-gambar">
+              <li><a href="#"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+              <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+              <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+              <li><a href="#"><i class="fab fa-linkedin-in"></i> LinkedIn</a></li>
+          </ul>
+      </div>
+  </footer>
+
+  <!-- Copyright -->
+  <footer class="footer-copyright">
+      <p>© Copyright 2024 JOB SITE | 
+          <a href="#">Privacy Policy</a> | 
+          <a href="#">Terms & Conditions</a>
+      </p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    alert("Ini adalah Website 2309106091");
+    feather.replace();
+  </script>
+  <script src="kerja.js"></script>
+   
+</body>
+</html>
