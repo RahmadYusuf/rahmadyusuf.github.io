@@ -1,0 +1,462 @@
+
+.text-container {
+  max-width: 500px;
+  margin-top: 5%; /* Kurangi jarak margin atas */
+  margin-left: 5%; /* Kurangi jarak margin kiri */
+}
+
+.text-container h1 {
+  font-size: 80px;
+  font-weight: bold; /* Tambahkan font weight agar lebih tegas */
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.text-container p {
+  font-size: 18px;
+  line-height: 1.6;
+  font-family: serif;
+}
+
+.text-container a {
+  text-decoration: none;
+  background: #00986f;
+  padding: 14px 40px;
+  display: inline-block;
+  color: #fff;
+  font-size: 18px;
+  margin-top: 20px; /* Kurangi jarak margin atas */
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.control {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 100px; /* Kurangi jarak antara elemen control */
+}
+.control {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 150px;
+}
+
+.control .line {
+  width: 250px;
+  height: 4px;
+  background: #fff;
+  margin: 0 20px;
+  border-radius: 2px;
+}
+
+.control .line span {
+  width: 100%;
+  height: 8px;
+  margin-top: -2px;
+  border-radius: 4px;
+  background: #00986f;
+  display: block;
+}
+
+/* Hero Section */
+.hero {
+  min-height: 90vh;
+  width: 100%;
+  position: relative;
+  
+}
+
+
+nav {
+  display: flex;
+  align-items: center;
+  padding: 15px 8%;
+}
+
+nav .menu-img {
+  width: 25px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+nav .logo {
+  width: 100px;
+  cursor: pointer;
+}
+
+nav ul {
+  flex: 1;
+  text-align: center;
+}
+
+nav ul li {
+  display: inline-block;
+  list-style: none;
+  margin: 0 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+  padding: 5px 10px;
+  transition: color 0.3s, background-color 0.3s, padding 0.3s;
+}
+
+nav ul li a:hover {
+  color: #fff;
+  background-color: #00986f;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+button {
+  background: #efefef;
+  height: 30px;
+  width: 60px;
+  border-radius: 20px;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  transition: background 0.5s, margin-left 0.5s;
+}
+
+button span {
+  display: block;
+  background: #999;
+  height: 26px;
+  width: 26px;
+  border-radius: 50px;
+  margin-left: 2px;
+  transition: margin-left 0.5s, background 0.5s;
+}
+
+button.active {
+  background-color: green;
+}
+
+button.active span {
+  background: #fff;
+  margin-left: 31px;
+}
+
+/* Lamp and light effect */
+.lamp-container {
+  position: absolute;
+  top: -20px;
+  left: 22%;
+  width: 200px;
+}
+
+.lamp {
+  width: 100%;
+}
+
+.light {
+  position: absolute;
+  top: 97%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 700px;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.on {
+  opacity: 1;
+}
+
+/* Dark mode styles */
+.dark-mode {
+  background-color: #121212;
+  color: #fff;
+}
+
+.dark-mode nav ul li a {
+  color: #fff;
+}
+
+.dark-mode nav ul li a:hover {
+  color: #121212;
+  background-color: #00986f;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+/* Button style for dark mode */
+button.active {
+  background: #333;
+}
+
+button.active span {
+  background: #fff;
+  margin-left: 31px;
+}
+
+/* Main Content */
+.data-kerja-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  margin: 50px 100px;
+}
+
+.data-kerja-title {
+  font-size: 36px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.job-search-form {
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 100px; 
+}
+
+.job-search-input {
+  flex: 1; 
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+
+.job-search-button {
+  flex: 0 0 auto;
+  padding: 10px 10px;
+  background-color: #00986f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#job-title + #lokasi {
+  border-radius: 25px; 
+  height: 40px;
+  width: 100%; 
+  padding-left: 15px;
+}
+
+/* Table */
+.table-kerja {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+.table-kerja-header, .table-kerja-row, .table-kerja-data {
+  border: 2px solid rgb(180, 180, 180);
+  text-align: left;
+  padding: 8px;
+}
+
+.table-kerja-header:nth-child(1),
+.table-kerja-row:nth-child(1),
+.table-kerja-data:nth-child(1) {
+  width: 35px;
+  text-align: center;
+}
+
+.job-table-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin: 0 auto;
+  width: 80%;
+}
+thead > .table-kerja-row {
+  background-color: #00986f;
+}
+
+
+
+.job-gambar{
+  border-radius: 45%;
+}
+
+
+/* footbar */
+.footbar-section {
+  padding: 50px 75px;
+  display: flex;
+  justify-content: space-around;
+  background-color: rgb(180, 180, 180);
+  flex-wrap: wrap; /* Flexbox digunakan agar elemen footer responsif */
+}
+
+.footbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 21px;
+  font-weight: 800;
+  margin: 0;
+  margin-bottom: 25px;
+}
+
+.footbar-title {
+  font-weight: 800;
+  font-size: 21px;
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+.footbar-list, .footbar-list-gambar {
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  gap: 15px; /* Jarak antara item dalam daftar */
+}
+
+.footbar-list-gambar a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.footbar-list-gambar a:hover {
+  color: #ffcc00;
+}
+
+.footbar-list-gambar i {
+  margin-right: 10px;
+}
+
+.footer-copyright {
+  text-align: center;
+  padding: 10px 0;
+  background-color: #333;
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.footer-copyright a {
+  color: #ffcc00;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.footer-copyright a:hover {
+  color: #ffffff;
+}
+.footbar-item a {
+  color: #0e431f; 
+  text-decoration: none; 
+}
+
+.footbar-item a:hover {
+  color: #ffcc00;
+}
+
+.text-and-image {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px; /* Tambahkan gap lebih kecil antara gambar dan teks */
+}
+
+.lowongan {
+  width: 500px; /* Sesuaikan ukuran gambar */
+  height: auto;
+  margin-left: 20px; /* Kurangi margin kiri gambar agar lebih dekat dengan teks */
+}
+/* Biodata Section */
+.biodata-section {
+  background-color: #f9f9f9; /* Warna latar belakang untuk biodata */
+  padding: 50px; /* Padding untuk memberikan jarak di sekitar biodata */
+  text-align: left; /* Rata kiri untuk teks */
+  margin: 20px; /* Margin untuk memberi ruang dari elemen lain */
+  border-radius: 10px; /* Sudut melengkung */
+}
+
+.biodata-container {
+  max-width: 600px; /* Lebar maksimum untuk kontainer biodata */
+  margin: 0 auto; /* Centering kontainer */
+}
+
+.biodata-title {
+  font-size: 28px; /* Ukuran font untuk judul biodata */
+  font-weight: bold; /* Menguatkan teks */
+  margin-bottom: 20px; /* Jarak bawah judul */
+}
+
+.biodata-content {
+  font-size: 18px; /* Ukuran font untuk konten biodata */
+}
+
+.biodata-item {
+  margin-bottom: 15px; /* Jarak antar item biodata */
+}
+
+.biodata-item strong {
+  color: #00986f; /* Warna untuk label kuat */
+}
+
+/*hamburger*/
+
+.hamburger{
+  font-size: 25px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+
+/* Media Queries */
+@media (max-width: 700px) {
+  .navbar-list {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0px 8px 16px rgba(144, 78, 78, 0.2);
+    transition: all 2s ease;
+  }
+
+  .lowongan {
+    width: 40%; /* Adjust ukuran gambar sesuai kebutuhan */
+    height: 20px;
+    height: auto;
+    margin-left: 50px;
+  }
+  .navbar-item {
+    margin: 15px 20px; 
+  }
+
+  .hamburger {
+    display: block;
+    position: absolute; 
+    right: 20px; 
+  
+  }
+  
+  #btn{
+    display: block;
+    position: absolute;
+    right: 20px;
+    margin-right: 80px;
+
+  }
+  .navbar-section {
+    justify-content: space-between;
+  }
+  
+  .text-container h1 {
+    font-size: 50px; /* Ukuran font h1 lebih kecil di perangkat mobile */
+  }
+
+  .text-container p {
+    font-size: 16px; /* Ukuran font p lebih kecil di perangkat mobile */
+  }
+}
