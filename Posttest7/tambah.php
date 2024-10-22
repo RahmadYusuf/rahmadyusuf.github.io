@@ -1,0 +1,142 @@
+<?php
+require "koneksi.php";
+session_start(); // Pastikan session dimulai
+
+// Cek apakah user sudah login
+if (!isset($_SESSION['login'])) {
+    echo "
+    <script>
+        alert('Silakan login terlebih dahulu!');
+        document.location.href = 'login.php';
+    </script>
+    ";
+    exit;
+}
+
+// Cek role dari sesi
+$role = $_SESSION['role']; // Ambil role dari session (admin/user)
+
+if (isset($_POST['tambah'])) {
+    $nama = $_POST['nama']; 
+    $umur = $_POST['umur']; 
+    $posisi_pekerjaan = $_POST['posisi_pekerjaan'];
+
+    $tmp_name = $_FILES['foto']['tmp_name']; // Mengambil data dari form foto
+    $file_name = $_FILES['foto']['name']; // Mengambil data dari form foto
+
+    $validExtension = ['jpg', 'jpeg', 'png']; // Ekstensi file yang diperbolehkan
+    $fileExtension = explode('.', $file_name); // Memisahkan nama file dengan ekstensi
+    if (!in_array(end($fileExtension), $validExtension)) {
+        echo "
+        <script>
+            alert('Ekstensi file yang diupload tidak diperbolehkan!');
+            document.location.href = 'tambah.php';
+        </script>";
+        exit;
+    } else {
+        $newFileName = date('Y-m-d H.i.s') . '-' . $file_name; // Menggabungkan tanggal sekarang
+        if (move_uploaded_file($tmp_name, 'images/' .$newFileName)) {
+            $sql = "INSERT into pendaftaran VALUES (null,'$nama', '$umur', '$posisi_pekerjaan', '$newFileName')"; 
+            $result = mysqli_query($conn, $sql);
+
+            if ($result) {
+                if ($role == 'admin') {
+                    // Jika role admin ke crud
+                    echo "
+                    <script>
+                        alert('Berhasil menambah data! Anda akan diarahkan ke halaman admin.');
+                        document.location.href = 'CRUD.php';
+                    </script>";
+                } else {
+                    // Jika role user  ke halaman index 
+                    echo "
+                    <script>
+                        alert('Berhasil menambah data! Anda akan diarahkan ke halaman utama.');
+                        document.location.href = 'index.php';
+                    </script>";
+                }
+            } else {
+                echo "
+                <script>
+                    alert('Gagal menambah data!');
+                    document.location.href = 'tambah.php';
+                </script>";
+            }
+        } else {
+            echo "
+            <script>
+                alert('Gagal memindahkan file!');
+                document.location.href = 'tambah.php';
+            </script>";
+        }
+    }
+}
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daftar Kerja</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="daftar.css" />
+</head>
+<body>
+    <section class="daftar-card">
+        <hgroup>
+            <h1 class="daftar-title">Pendaftaran Kerja</h1>
+            <p class="daftar-description">Silakan Mendaftar Pekerjaan</p>
+        </hgroup>
+        
+        <form action="" method='post' class="daftar-form-container" enctype="multipart/form-data">
+            <div class="daftar-form-group">
+                <label for="username" class="daftar-form-title">Nama</label>
+                <input type="text" placeholder="Masukkan Nama" name="nama" id="username" class="daftar-form-input" required>
+            </div>
+
+            <div class="daftar-form-group">
+                <label for="Umur" class="daftar-form-title">Umur</label>
+                <input type="number" placeholder="Umur" name="umur" id="Umur" class="daftar-form-input" required>
+            </div> 
+            <div class="daftar-form-group">
+                <label for="job-select" class="daftar-form-title">Posisi Pekerjaan</label>
+                <select id="job-select" name="posisi_pekerjaan" class="daftar-form-input" required>
+                    <option value=""> Pilih Pekerjaan </option>
+                    <option value="Web Developer">Web Developer</option>
+                    <option value="Data Scientist">Data Scientist</option>
+                    <option value="Desainer Grafis">Desainer Grafis</option>
+                    <option value="Software Engineer">Software Engineer</option>
+                    <option value="Mobile Developer">Mobile Developer</option>
+                    <option value="Backend Developer">Backend Developer</option>
+                    <option value="Frontend Developer">Frontend Developer</option>
+                    <option value="UI/UX Designer">UI/UX Designer</option>
+                    <option value="DevOps Engineer">DevOps Engineer</option>
+                    <option value="Product Manager">Product Manager</option>
+                    <option value="Data Analyst">Data Analyst</option>
+                    <option value="Digital Marketing">Digital Marketing</option>
+                    <option value="Business Analyst">Business Analyst</option>
+                    <option value="Quality Assurance">Quality Assurance</option>
+                    <option value="Network Engineer">Network Engineer</option>
+                    <option value="System Administrator">System Administrator</option>
+                    <option value="Cloud Engineer">Cloud Engineer</option>
+                    <option value="Security Analyst">Security Analyst</option>
+                    <option value="Sales Executive">Sales Executive</option>
+                    <option value="Content Writer">Content Writer</option>
+                    <option value="Graphic Designer">Graphic Designer</option>
+                </select>
+            </div>
+
+            <div class="daftar-form-group">
+                <label for="foto" class="daftar-form-title">Foto</label>
+                <input type="file" name="foto" id="foto" class="daftar-form-input" required>
+            </div>
+
+            <input class="daftar-button" type="submit" value="Daftar" name="tambah">
+        </form>
+    </section>
+</body>
+</html>
